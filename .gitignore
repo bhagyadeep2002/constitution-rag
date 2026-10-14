@@ -1,0 +1,5 @@
+.venv/
+local_vector/
+local_vector_articles/
+.env
+__pycache__/

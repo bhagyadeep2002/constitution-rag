@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Ask clear questions about the Constitution of India."
+    />
+    <title>Samvidhan — Constitution Q&amp;A</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="Samvidhan home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="18" />
+              <circle cx="24" cy="24" r="3" />
+              <path d="M24 6v36M6 24h36M11.27 11.27l25.46 25.46m0-25.46L11.27 36.73M17.1 7.96l13.8 32.08m9.14-22.94L7.96 30.9m0-13.8 32.08 13.8M30.9 7.96 17.1 40.04" />
+            </svg>
+          </span>
+          <span class="brand-copy">
+            <span class="brand-name">Samvidhan</span>
+            <span class="brand-caption">Constitution of India</span>
+          </span>
+        </a>
+        <span class="header-note"><span class="note-dot"></span> A thoughtful guide to the text</span>
+      </header>
+
+      <main id="top">
+        <section class="workspace" aria-label="Constitution question and answer">
+          <div class="intro">
+            <p class="eyebrow"><span></span> THE PEOPLE'S CONSTITUTION</p>
+            <h1>Understand the ideas that shape <em>India.</em></h1>
+            <p class="intro-copy">
+              Ask a question about the Constitution and get a clear answer grounded
+              in its provisions.
+            </p>
+            <div class="tricolour-rule" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <p class="intro-footnote">Curious about a right, an article, or how it all works?</p>
+          </div>
+
+          <section class="assistant-card" aria-labelledby="assistant-title">
+            <div class="card-heading">
+              <div class="assistant-emblem" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none">
+                  <circle cx="24" cy="24" r="16" />
+                  <circle cx="24" cy="24" r="2.5" />
+                  <path d="M24 8v32M8 24h32M12.69 12.69l22.62 22.62m0-22.62L12.69 35.31m-2.1-17.18 26.82 11.74m-26.82 0 26.82-11.74" />
+                </svg>
+              </div>
+              <div class="card-title-group">
+                <h2 id="assistant-title">Ask Samvidhan</h2>
+                <p>Explore the Constitution, one question at a time.</p>
+              </div>
+              <span class="card-index">01 <i>/ 01</i></span>
+            </div>
+
+            <div class="conversation" id="conversation" aria-live="polite" aria-relevant="additions text">
+              <div class="message assistant-message">
+                <span class="message-label">SAMVIDHAN</span>
+                <p>Hello. What would you like to know about the Constitution of India?</p>
+              </div>
+            </div>
+
+            <div class="suggestions" aria-label="Suggested questions">
+              <span class="suggestions-label">TRY ASKING</span>
+              <button class="suggestion" type="button" data-prompt="What are the Fundamental Rights?">What are Fundamental Rights?</button>
+              <button class="suggestion" type="button" data-prompt="How can the Constitution be amended?">How is it amended?</button>
+            </div>
+
+            <form class="question-form" id="question-form">
+              <label class="visually-hidden" for="question-input">Your question</label>
+              <textarea
+                id="question-input"
+                name="question"
+                rows="1"
+                placeholder="Ask a question about the Constitution…"
+                required
+              ></textarea>
+              <button class="send-button" type="submit" aria-label="Send question">
+                <span>Ask</span>
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3.5 10h12m-5-5 5 5-5 5" /></svg>
+              </button>
+            </form>
+            <p class="card-footnote">Answers are based on the indexed text and may include article citations.</p>
+          </section>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <span>Made for learning and looking closer.</span>
+        <span class="footer-colours" aria-label="Inspired by the Indian flag"><i></i><i></i><i></i></span>
+      </footer>
+    </div>
+  </body>
+</html>
