@@ -43,7 +43,8 @@ do not present a rule that applies "at the commencement" as a current general
 rule. Use provisions on territory to establish where a rule applies when the
 context provides them. Do not infer a separate Union Territory citizenship
 rule from provisions about Union Territory administration. Cite each legal
-claim using the source number, such as [Source 1].
+claim using the source number, such as [Source 1]. Use only source numbers
+shown in the context, and place the citation beside the claim it supports.
 
 Context:
 {context}
@@ -55,9 +56,10 @@ Answer:
 """)
 
 
-def ask(question: str, *, show_sources: bool = False) -> str:
+def ask(question: str, *, show_sources: bool = False) -> dict[str, object]:
     docs = retriever.invoke(question)
     context_parts = []
+    sources = []
     for index, doc in enumerate(docs, start=1):
         article = doc.metadata.get("article")
         title = doc.metadata.get("title")
@@ -65,22 +67,27 @@ def ask(question: str, *, show_sources: bool = False) -> str:
         if title:
             label += f": {title}"
         context_parts.append(f"[Source {index} — {label}]\n{doc.page_content}")
+        sources.append({
+            "id": index,
+            "label": label,
+            "document": doc.metadata.get("source"),
+            "article": article,
+            "title": title,
+            "section": doc.metadata.get("section"),
+            "text": doc.page_content,
+            "part": doc.metadata.get("part"),
+        })
     
     if show_sources:
         print("Retrieved sources:")
-        for index, doc in enumerate(docs, start=1):
-            article = doc.metadata.get("article")
-            title = doc.metadata.get("title")
-            label = f"Article {article}" if article else doc.metadata.get("section", "Unlabelled section")
-            if title:
-                label += f": {title}"
-            excerpt = " ".join(doc.page_content.split())[:260]
-            print(f"[Source {index} — {label}] {excerpt}...")
+        for source in sources:
+            excerpt = " ".join(str(source["text"]).split())[:260]
+            print(f"[Source {source['id']} — {source['label']}] {excerpt}...")
 
     context = "\n\n".join(context_parts)
     messages = prompt.invoke({"context": context, "question": question})
     response = llm.invoke(messages)
-    return response.content
+    return {"answer": response.content, "sources": sources}
 
 
 def main() -> None:
@@ -92,7 +99,8 @@ def main() -> None:
         question = input("Question: ").strip()
     if not question:
         parser.error("Please provide a question.")
-    print(ask(question, show_sources=True))
+    result = ask(question, show_sources=True)
+    print(result["answer"])
 
 
 if __name__ == "__main__":

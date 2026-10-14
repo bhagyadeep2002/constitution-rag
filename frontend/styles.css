@@ -124,6 +124,15 @@ h1 em { color: var(--green); font-weight: 500; }
 .message p { margin: 8px 0 0; color: #46535e; font-size: 13px; line-height: 1.7; white-space: pre-wrap; overflow-wrap: anywhere; }
 .assistant-message { align-self: flex-start; padding: 13px 16px; border: 1px solid #efede8; border-radius: 3px 14px 14px 14px; background: #fbfaf7; }
 .assistant-message .message-label { color: var(--chakra); font-size: 9px; }
+.citation-link { display: inline; padding: 0; border: 0; background: transparent; color: var(--chakra); cursor: pointer; font-size: inherit; font-weight: 700; text-decoration: underline dotted; text-underline-offset: 3px; }
+.citation-link:hover { color: var(--green); }
+.citation-unmatched { color: #a45d36; font-size: .92em; }
+.source-list { display: grid; gap: 6px; margin-top: 14px; padding-top: 11px; border-top: 1px solid #e9e6df; }
+.source-list-heading { margin-bottom: 2px; color: #999388; font-size: 9px; font-weight: 700; letter-spacing: .12em; }
+.source-item { border: 1px solid #e9e6df; border-radius: 8px; background: #fffefa; }
+.source-item summary { padding: 8px 10px; color: #4f6270; cursor: pointer; font-size: 10px; font-weight: 600; line-height: 1.5; }
+.source-item[open] summary { border-bottom: 1px solid #efede7; }
+.source-item .source-text { max-height: 190px; margin: 0; padding: 9px 10px; overflow: auto; color: #69747a; font-size: 10px; line-height: 1.65; white-space: pre-wrap; }
 .user-message { align-self: flex-end; padding: 12px 15px; border-radius: 14px 3px 14px 14px; background: #f8efe5; }
 .user-message p { margin: 0; color: #394955; }
 .typing-dots { display: inline-flex; gap: 4px; margin: 5px 0 2px; }

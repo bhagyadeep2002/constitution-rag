@@ -13,8 +13,7 @@ class QuestionRequest(BaseModel):
 
 @app.post("/ask")
 def ask_question(request: QuestionRequest):
-    answer = ask(request.question)
-    return {"answer": answer}
+    return ask(request.question)
 
 app.mount(
     "/",
